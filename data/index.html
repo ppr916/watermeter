@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Compteur d'eau</title>
+<style type="text/css">
+table {
+	border-collapse: collapse;
+    margin: auto;
+    color: #FFCCFF;
+}
+th {
+	color: #FFFF99;
+	border: 1px solid #FFCCFF;
+	text-align: center;
+	padding: 15px;
+}
+td {
+    color: #00FF00;
+	border: 1px solid #FFCCFF;
+	text-align: center;
+	padding: 15px;
+}
+caption {
+    padding: 10px 0 20px;
+    color: #FF9933;
+	text-align: center;
+}
+</style>
+
+    </head>
+	    <script>
+			function misajour() {
+                fetch("/compteur") // on envoie une requête GET au serveur
+                .then(response => response.text()) // on récupère le texte de la réponse
+                .then((response) => {
+				    const myArray = response.split(":");
+                    document.getElementById("lit").innerHTML = myArray[0]; 
+                    document.getElementById("bat").innerHTML = myArray[1]; 
+					document.getElementById("compt").innerHTML = myArray[2]; 
+			   })
+            }
+            setInterval(function(){ // tout ce qui se trouve ici sera répété indéfiniment
+            misajour();
+            }, 60000) // à répéter toutes les min
+        </script>
+    <body style="background-color: #000000" onload="misajour();">
+		<table>
+		<caption>Compteur d'eau</caption>
+	    <tr>
+		   <th>Litre</th>
+		   <th>Batterie</th>
+		   <th>Compteur</th>
+	   </tr>
+	   <tr>
+		   <td id="lit">%LITRE%</td>
+		   <td id="bat">%BATTERIE%</td>
+		   <td id="compt">%COMPTEUR%</td>
+	   </tr>
+       </table>
+    </body>
+</html>
