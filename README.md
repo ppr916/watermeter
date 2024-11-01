@@ -18,4 +18,4 @@ Ensuite il suffit de se connecter dessus avec un navigateur sur l’ip spécifi�
 
 Chez moi je l’ai branché sur une prise connecté que j’active à la demande.
 Le compteur est à 50-60cm sous terre avec une plaque béton dessus, la maison est à environ 50 m et je me connecté facilement
-
+si l’antenne est verticale.
